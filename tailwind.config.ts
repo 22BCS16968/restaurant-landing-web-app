@@ -61,7 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Restaurant-specific colors
+				'warm-cream': 'hsl(var(--warm-cream))',
+				'deep-burgundy': 'hsl(var(--deep-burgundy))',
+				'rich-gold': 'hsl(var(--rich-gold))',
+				'warm-brown': 'hsl(var(--warm-brown))'
+			},
+			fontFamily: {
+				'heading': ['Playfair Display', 'serif'],
+				'body': ['Inter', 'sans-serif'],
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
