@@ -28,9 +28,22 @@ const dishes = [
   }
 ];
 
-const FeaturedDishes = () => {
+interface FeaturedDishesProps {
+  onOpenMenu: () => void;
+}
+
+const FeaturedDishes = ({ onOpenMenu }: FeaturedDishesProps) => {
+  const handleOrderNow = (dishName: string) => {
+    // Scroll to contact form for ordering
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // You could also add the dish to a cart or show an order modal here
+  };
+
   return (
-    <section className="py-20 warm-gradient">
+    <section id="menu" className="py-20 warm-gradient">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="font-heading text-4xl sm:text-5xl font-bold text-primary mb-4">
@@ -71,7 +84,11 @@ const FeaturedDishes = () => {
                   {dish.description}
                 </p>
                 
-                <Button variant="restaurant-outline" className="w-full">
+                <Button 
+                  variant="restaurant-outline" 
+                  className="w-full"
+                  onClick={() => handleOrderNow(dish.name)}
+                >
                   Order Now
                 </Button>
               </CardContent>
@@ -80,7 +97,11 @@ const FeaturedDishes = () => {
         </div>
         
         <div className="text-center mt-12 animate-fade-in-up">
-          <Button variant="restaurant" size="lg">
+          <Button 
+            variant="restaurant" 
+            size="lg"
+            onClick={onOpenMenu}
+          >
             View Full Menu
           </Button>
         </div>

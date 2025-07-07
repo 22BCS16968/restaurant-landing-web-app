@@ -1,8 +1,18 @@
 import { Button } from "@/components/ui/button";
 
 const About = () => {
+  const scrollToAbout = () => {
+    // Could open a detailed about page or modal
+    alert("Coming soon: Detailed story about our restaurant's journey!");
+  };
+
+  const scrollToChef = () => {
+    // Could open chef bio modal or page
+    alert("Coming soon: Meet our talented culinary team!");
+  };
+
   return (
-    <section className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -25,10 +35,18 @@ const About = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="restaurant" size="lg">
+              <Button 
+                variant="restaurant" 
+                size="lg"
+                onClick={scrollToAbout}
+              >
                 Our Story
               </Button>
-              <Button variant="restaurant-outline" size="lg">
+              <Button 
+                variant="restaurant-outline" 
+                size="lg"
+                onClick={scrollToChef}
+              >
                 Meet the Chef
               </Button>
             </div>

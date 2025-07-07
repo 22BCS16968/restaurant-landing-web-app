@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-restaurant.jpg";
 
-const Hero = () => {
+interface HeroProps {
+  onOpenMenu: () => void;
+}
+
+const Hero = ({ onOpenMenu }: HeroProps) => {
+  const scrollToReservations = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -28,10 +40,20 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
-          <Button variant="restaurant" size="lg" className="w-full sm:w-auto">
+          <Button 
+            variant="restaurant" 
+            size="lg" 
+            className="w-full sm:w-auto"
+            onClick={scrollToReservations}
+          >
             Reserve Your Table
           </Button>
-          <Button variant="outline-light" size="lg" className="w-full sm:w-auto">
+          <Button 
+            variant="outline-light" 
+            size="lg" 
+            className="w-full sm:w-auto"
+            onClick={onOpenMenu}
+          >
             View Menu
           </Button>
         </div>
